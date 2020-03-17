@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.chx.cms.dao.UserMapper">
+  		
+  		<select id="selects" resultType="User">
+  		
+  			select * from cms_user
+  			
+  			<where>
+  				<if test="username!=null ">
+  					and username like "%" #{username} "%"
+  				</if>
+  				<if test="locked!=null and ''!=locked">
+  					and locked=#{locked}
+  				</if>
+  			</where>
+  			
+  			order by created desc
+  			
+  		</select>
+  		
+  		<!-- 修改状态 -->
+  		<update id="update">
+  			update cms_user
+  			<set>
+  				<if test="locked!=null">locked=#{locked}</if>
+  			</set>
+  			
+  			where id=#{id}
+  			
+  		</update>
+  		
+  		<!--用户查重  -->
+  		<select id="selectByUsername" resultType="User">
+  			select * from cms_user where username=#{username}
+  		</select>
+  		<!-- 用户注册 -->
+  		<insert id="insert">
+  			insert into cms_user(username,password,nickname,gender,birthday,locked,created)
+  			values(#{username},#{password},#{nickname},#{gender},#{birthday},#{locked},#{created});
+  		</insert>
+  		
+  </mapper>

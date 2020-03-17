@@ -43,7 +43,7 @@ String htmlData = request.getParameter("content1") != null ? request.getParamete
 		<div class="form-group">
 			<label for="title">文章标题：</label>
 			<input type="text" id="title" name="title"  class="form-control form-control-sm col-sm-10 " >
-			</div>
+		</div>
 			<div  class="form-group form-inline" >
 				<label for="title">所属栏目：</label>
 				<select  class="form-control form-control-sm "  id="channels"  name="channelId">
@@ -54,7 +54,13 @@ String htmlData = request.getParameter("content1") != null ? request.getParamete
 				<select  class="form-control form-control-sm " id="categorys"  name="categoryId">
 					<option value="-1">请选择</option>
 				</select>
-				
+			</div>
+			<div>
+				<label for="title">文章关键字：</label>
+				<input type="text" id="keywords" name="keywords"  class="form-control form-control-sm col-sm-10 " >
+				<label for="title">文章来源：</label>
+				<input type="text" id="original" name="original"  class="form-control form-control-sm col-sm-10 " >
+			
 			</div>
 			<div  class="form-group" >
 				标题图片：<input type="file" name="file">

@@ -20,7 +20,6 @@
 	</delete>
 	
 	<select id="selects" resultType="Article">
-	
 		select a.article_id as id, a.visit_num as hits,b.title from cms_count a  
 		LEFT JOIN cms_article  b on a.article_id  =b.id 
 		order by visit_num desc

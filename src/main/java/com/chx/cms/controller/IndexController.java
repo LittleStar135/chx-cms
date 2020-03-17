@@ -8,6 +8,8 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -87,12 +89,14 @@ public class IndexController {
 		article2.setStatus(1);
 		article2.setDeleted(0);
 		PageInfo<Article> lastArticles = articleService.selects(article2, 1, 5);
+		model.addAttribute("lastArticles", lastArticles);
+		
 		
 		//文章点击排行榜
 		List<Article> topArticles = articleLogService.selects();
 		model.addAttribute("topArticles", topArticles);
 		
-		model.addAttribute("lastArticles", lastArticles);
+		
 		
 		
 		return "index/index";
@@ -219,5 +223,9 @@ public class IndexController {
 		
 		return articleLogService.insert(log) >0;
 	}
+	
+	
+
+	
 	
 }

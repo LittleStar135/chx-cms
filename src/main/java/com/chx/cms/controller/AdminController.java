@@ -127,7 +127,6 @@ public class AdminController {
 	}
 	
 	
-	
 	/**
 	 * 
 	 * @Title: settings 

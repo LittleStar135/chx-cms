@@ -180,7 +180,7 @@
 					</c:forEach>
 				  </div>
 				</div>
-				
+			
 				<!--点击排行榜  -->
 				<div class="card" style="width: 18rem; margin-top: 6px" >
 					<div class="header" style="background-color:black;color: white;" align="center">点击排行榜</div>
@@ -236,7 +236,8 @@
 			$("#title").append("用户登录");
 			$("#passport").load("/passport/login");
 		}
-	
+		
+		
 	
 	</script>
 		

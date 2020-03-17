@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <!-- 视窗 -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <meta name="keywords" content="${article.keywords}">
 <meta name="decription" content="${article.original}">
 <title>${article.title }</title>
@@ -30,6 +31,7 @@
 			<div class="col-md-1"></div>
 			<div class="col-md-7">
 				<h2>${article.title }</h2>
+				
 				<p style="padding-top: 20px">
 					${article.user.username} ·
 					 <fmt:formatDate value="${article.created }"  pattern="yyyy-MM-dd HH:mm:ss"/>
@@ -40,7 +42,13 @@
 					<c:if test="${collect==null}">
 					     <button type="button" onclick="collect(1)" class="btn btn-link">☆ &nbsp;  未收藏</button>
 					</c:if>
-				
+					<c:if test="${article.keywords !=null}">
+					<P>关键字：${article.keywords }</P>
+					</c:if>
+					<c:if test="${article.original !=null}">
+					<P>来源：${article.original}</P>
+					</c:if>
+					
 				<hr>
 					${article.content }
 				<hr>
